@@ -1,0 +1,257 @@
+$font-regular: 'Work Sans', sans-serif;
+$primary1: #4a5159;
+$primary2: #d24545;
+$primary3: #c5c2c5;
+$primary4: #008cb2;
+$secondary1: #574942;
+$secondary2: #3f9989;
+$secondary3: #396370;
+$secondary4: #e5e3e3;
+
+
+.filter-button {
+  background: $secondary4;
+  border-radius: 3px;
+  border: none;
+  padding: 5px 10px;
+}
+
+.your-entry {
+  margin-top: 50px;
+  text-align: center;
+  margin-bottom: 0;
+  color: $secondary4;
+}
+
+.fa {
+  // font-size: 3rem !important;
+  margin: 10px;
+}
+
+.fa-facebook, .fa-instagram, .fa-twitter {
+   font-size: 5.5rem !important;
+}
+
+.this-is.profile img {
+  max-width: 800px;
+  margin-left: 20px;
+}
+
+.this-is-row.profile {
+  padding-top: 100px;
+  -ms-transform: rotate(-10deg); /* IE 9 */
+  -webkit-transform: rotate(-10deg); /* Chrome, Safari, Opera */
+  transform: rotate(-10deg);
+}
+
+.take-the-quiz {
+  // height: 400px;
+  // background-image: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1483407526/Entries_Board_nq7d9b.png");
+  background-repeat: none;
+  background-size: cover;
+}
+
+.thanks-for-voting {
+  img {
+    max-width: 400px;
+    margin: 50px;
+    border: 5px solid white;
+    border-radius: 5px;
+  }
+  background: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1483407521/Section2_Background_ct7a77.jpg");
+  // background-image: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1483407524/Entries_Background_sbutxk.jpg");
+  background-size: cover;
+  button {
+    margin-bottom: 50px;
+  }
+}
+
+.thankyou {
+  color: $secondary4;
+  font-family: $font-regular;
+  font-size: 3rem;
+}
+
+.ty-top {
+  font-size: 3.5rem;
+  margin-top: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.share-section {
+  // height: 500px;
+  background-image: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1483407521/Footer_Background_amx84q.jpg");
+  background-repeat: none;
+  background-size: cover;
+}
+
+.challenge-section {
+  background-color: $secondary4;
+  // background-image: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1483407530/EnterToWin_Background_gvafys.jpg");
+}
+
+.user-story {
+  margin-left: 2% !important;
+}
+
+.user-show-main-bottom {
+  // background-image: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1483407530/EnterToWin_Background_gvafys.jpg");
+  background-color: $secondary4;
+  background-size: cover;
+  background-repeat: none;
+  padding-bottom:50px;
+}
+
+.user-share-memory {
+  margin: 50px 0;
+  h1 {
+    font-family: $font-regular;
+    color: $secondary4;
+  }
+  button {
+    border: none;
+    color: $secondary4;
+  }
+}
+
+.challenge-friends {
+  margin: 100px;
+  text-align: center;
+  font-family: $font-regular;
+  button {
+    border-radius: 5px;
+    padding: 10px 15px;
+    background: $primary2;
+    border: none;
+    color: $secondary4;
+    font-size: 2rem;
+    &:hover {
+      background: white;
+      color: $primary1;
+      text-decoration: none;
+      -webkit-transition: background .3s ease-in-out;
+      -moz-transition: background .3s ease-in-out;
+      -o-transition: background .3s ease-in-out;
+      transition: background .3s ease-in-out;
+    }
+  }
+}
+
+.test-your-knowledge {
+  margin: 100px;
+  text-align: center;
+  font-family: $font-regular;
+  h1 {
+    color: $primary2;
+    font-weight: 700;
+  }
+  h2 {
+    color: $secondary4;
+  }
+  button {
+    border-radius: 5px;
+    padding: 10px 15px;
+    background: $primary2;
+    border: none;
+    color: $secondary4;
+    font-size: 2rem;
+    &:hover {
+      background: $secondary4;
+      color: $primary1;
+      text-decoration: none;
+      -webkit-transition: background .3s ease-in-out;
+      -moz-transition: background .3s ease-in-out;
+      -o-transition: background .3s ease-in-out;
+      transition: background .3s ease-in-out;
+    }
+  }
+}
+
+.create-your-entry {
+  padding: 50px;
+  background-image: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1483407530/EnterToWin_Background_gvafys.jpg");
+
+}
+
+.filter-background {
+  background-color: white;
+}
+
+#entry_image img {
+  max-width: 100%;
+  margin-top: 40px;
+  border: 5px solid $secondary4;
+  border-radius: 5px;
+  position: relative;
+}
+
+#entry_image {
+  position: relative;
+}
+
+.image-hashtag {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  font-size: 28px;
+  color: white;
+  font-weight: bold;
+}
+
+.filter-button {
+  margin: 10px;
+}
+
+.story-column {
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+#save-filter {
+  text-align: center;
+  margin: auto;
+  display: block;
+  margin-bottom: 40px;
+  margin-top: 10px;
+  // background: $secondary1;
+  text-decoration: none;
+  padding: 10px 15px;
+  font-size: 2rem;
+  // color: $secondary4;
+  // border: none;
+}
+
+.buttons-container {
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .user-story {
+    margin-top: 20px;
+  }
+  .challenge-friends {
+    margin: 50px;
+  }
+  .test-your-knowledge {
+    margin: 50px;
+  }
+  #logo-vote {
+    display: none;
+  }
+  .this-is.profile img {
+    max-width: 500px;
+  }
+  .this-is-row.profile {
+    padding-top: 55px;
+  }
+}
+
+@media (max-width: 500px) {
+  .this-is-row.profile {
+    padding-top: 115px;
+  }
+  .this-is.profile img {
+    margin-left: 0;
+  }
+}

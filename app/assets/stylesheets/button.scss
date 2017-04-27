@@ -1,0 +1,88 @@
+$font-regular: 'Work Sans', sans-serif;
+$primary1: #4a5159;
+$primary2: #d24545;
+$primary3: #c5c2c5;
+$primary4: #008cb2;
+$secondary1: #574942;
+$secondary2: #3f9989;
+$secondary3: #396370;
+$secondary4: #e5e3e3;
+
+
+.more-posts-button {
+  text-align: center;
+  padding: 70px;
+  a {
+    background-color: #949494;
+    border-radius: 5px;
+    border: 3px solid $secondary4;
+    color: $secondary4;
+    text-transform: uppercase;
+    padding: 15px 20px;
+    font-family: $font-regular;
+    font-size: 2rem;
+
+    &:hover {
+      background: $secondary4;
+      text-decoration: none;
+      color: $primary1;
+      -webkit-transition: background .3s ease-in-out;
+      -moz-transition: background .3s ease-in-out;
+      -o-transition: background .3s ease-in-out;
+      transition: background .3s ease-in-out;
+    }
+  }
+}
+
+
+.button-main {
+  border: 3px solid $secondary4;
+  background: red;
+  border-radius: 5px;
+  color: $secondary4;
+  padding: 6px 16px;
+  text-transform: uppercase;
+  font-family: $font-regular;
+  font-size: 2rem;
+
+  &:hover {
+    a {
+      color: $primary1;
+      text-decoration: none;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    background: white;
+    color: $primary1;
+    text-decoration: none;
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    -o-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+  }
+}
+
+
+.button-red {
+  border-radius: 5px;
+  padding: 10px 15px;
+  background: $primary2;
+  border: none;
+  color: $secondary4;
+  font-size: 2rem;
+  text-transform: uppercase;
+  a:hover {
+    text-decoration:none;
+    color: $primary1;
+  }
+  &:hover {
+    background: white;
+    color: $primary1;
+    text-decoration: none;
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    -o-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+  }
+}

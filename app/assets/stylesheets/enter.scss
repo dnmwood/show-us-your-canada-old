@@ -1,0 +1,390 @@
+$font-regular: 'Work Sans', sans-serif;
+$primary1: #4a5159;
+$primary2: #d24545;
+$primary3: #c5c2c5;
+$primary4: #008cb2;
+$secondary1: #574942;
+$secondary2: #3f9989;
+$secondary3: #396370;
+$secondary4: #e5e3e3;
+$darkgrey: #2c2d2d;
+$heading1: 4.5rem;
+$heading2: 18px;
+
+
+.entry-top {
+  background-image: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1485722649/19560925711_ff5979b97c_o_f6hvcn.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+#user_terms_conditions, #email_opt_in {
+  height: 25px;
+  width: 25px;
+  margin: 0px 4px 0px
+}
+
+.entry-row {
+  padding-top: 75px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.photo-column {
+  text-align: center;
+}
+
+.field {
+  text-align: center;
+}
+
+.name-field {
+  text-align: center;
+}
+#story-counter-hidden {
+  display: none;
+}
+
+i.fa-pencil-square-o {
+  display: block;
+}
+
+
+.entry-instructions {
+
+  h2 {
+    color: white;
+    font-family: $font-regular;
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: $heading2;
+  }
+  h1 {
+    font-family: $font-regular;
+    font-size: $heading1;
+  }
+  // h2 {
+  //   color: white;
+  //   font-family: $font-regular;
+  //   font-weight: 300;
+  //   text-align: right;
+  // }
+}
+
+#suyc-entry {
+  max-width: 400px;
+}
+
+#title_text {
+  border-radius: 5px;
+  border: 5px solid rgba(210, 69, 69, 0.13);
+}
+
+#new_entry {
+  color: $darkgrey;
+}
+
+.counter {
+  margin: 10px 0 20px;
+  color: white;
+}
+
+.step {
+  text-align: center;
+  h3 {
+    font-family: $font-regular;
+    font-size: $heading2;
+  }
+}
+
+.step-row {
+  margin-top: 50px;
+}
+
+.upload-label {
+  width: 400px;
+  height: 60px;
+  font-size: 3rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.7rem 1.25rem;
+  color: #f1e5e6;
+  background-color: #d3394c;
+  margin-top: 80px;
+}
+
+.entry-top {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.entry-photo-step {
+  background: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1483407524/Entries_Background_sbutxk.jpg");
+  padding: 40px;
+}
+
+.fa-camera-retro, .fa-upload, .fa-pencil-square-o, .fa-clone, .fa-paperclip, .fa-smile-o {
+  font-size: 6rem !important;
+}
+
+.entry-step {
+  padding: 100px 0;
+  background: rgba(229, 227, 227, 0.75);
+}
+
+.entry-icons {
+  text-align: center;
+  i {
+  color: $primary2 !important;
+  }
+}
+
+#img_prev {
+  margin-bottom: 20px;
+}
+
+.carrierwave-wave-field input {
+  font-size: 2.6rem !important;
+}
+
+#story-box {
+  border-radius: 5px;
+  border: 5px solid rgba(210, 69, 69, 0.13);
+  width: 100%;
+  height: 30vh;
+}
+
+textarea {
+  font-size: 2rem !important;
+  padding: 15px;
+}
+
+.vertical-text {
+  margin-top:40px;
+  font-size:3.5rem;
+  font-family: $font-regular;
+  font-weight: 700;
+  text-align: center;
+}
+
+.submit-right {
+  margin-top: 20px !important;
+}
+
+.carrierwave-wave-field {
+  margin-top: 15vh;
+}
+
+.carrierwave-wave-field input {
+  position: relative;
+  opacity: 0;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.carrierwave-wave-field h1 {
+  margin-top: 0;
+}
+
+.white-text {
+  color: white;
+  font-family: $font-regular;
+}
+
+.black-text {
+  color:black !important;
+  font-family: $font-regular;
+}
+
+#camera-upload {
+  margin-top: 50px;
+  font-size: 120px !important;
+  color: white;
+}
+
+#avatar-upload {
+  height: 61px;
+  width: 100%;
+  padding-left: 0px;
+  position: absolute;
+  bottom: 10px;
+}
+
+.fake-button {
+  text-align: center;
+  // color: black;
+}
+
+.edit-photo img {
+  max-width: 400px;
+}
+
+.edit-photo {
+  padding-top: 100px;
+  background-image: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1483407530/EnterToWin_Background_gvafys.jpg");
+  padding-bottom: 100px;
+  padding-left: 50px !important;
+}
+
+.delete-entry {
+  text-align: right;
+}
+
+.delete-entry-container {
+  margin-top: 40px;
+  text-align: right;
+}
+
+.headline {
+  margin-top: 500px;
+  color: $secondary4;
+  font-family: $font-regular;
+  font-weight: 400;
+  text-align: center;
+}
+
+h3.step-header {
+  font-weight: bold;
+  margin-top: 40px !important;
+  margin-bottom: 40px !important;
+}
+
+h1.step-header {
+  font-weight: bold;
+  margin-top: 40px !important;
+  margin-bottom: 40px !important;
+}
+
+div.field.col-md-offset-2.col-md-5 {
+  #update-user-submit {
+    margin-top: 20px;
+  }
+}
+
+.step-3 {
+  margin-top: 10vh;
+  h3 {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+.edit-button {
+  padding: 2px 6px 3px;
+}
+
+
+@media (max-width: 1200px) {
+  .vertical-text {
+    font-size: 3rem;
+  }
+
+  h2.center-text {
+    font-size: 20px;
+  }
+
+  .entry-row {
+    padding-top: 50px;
+  }
+
+  .upload-label {
+    margin-top: 0;
+    margin-right: 0;
+  }
+
+  .t_c {
+    h5 {
+      margin-top: -5px;
+    }
+  }
+}
+
+.sort-by {
+  background-color: white;
+  h3 {
+    display: inline;
+  }
+}
+
+.sort-text {
+  margin: 20px;
+}
+
+.entry-t-c {
+  margin-top: 20px;
+}
+// @media (max-width: 1200px) and (min-width: 991px) {
+//   #avatar-upload {
+//     top: 48px;
+//   }
+// }
+
+// @media (max-width: 990px) {
+//   #avatar-upload {
+//     bottom: 9px;
+//     left: 270px;
+//   }
+// }
+
+@media (max-width: 767px) {
+  .edit-photo {
+    padding-top:50px;
+  }
+  .entry-row {
+    padding-top: 50px;
+  }
+  .entry-top {
+    height: 168vh;
+    h2 {
+    color: white;
+    font-size: 16px;
+    }
+  }
+  .vertical-text {
+    margin-top: 30px !important;
+  }
+
+  h1.vertical-text {
+    font-size: 2rem;
+  }
+
+  .entry-top {
+    height: inherit;
+    &:before {
+      background-color: rgba(0, 0, 0, 0.6);
+      height: 400vh;
+    }
+  }
+
+  .entry-row {
+    background-color: rgba(0, 0, 0, 0);
+    height: inherit;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .name-field {
+    width: 270px !important;
+  }
+
+  img.polaroid-home {
+    max-width: 100%;
+  }
+}

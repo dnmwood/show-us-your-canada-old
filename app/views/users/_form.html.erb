@@ -1,0 +1,25 @@
+<div class="row">
+<%= form_for(@user) do |f| %>
+
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="col-lg-7 col-sm-8 email-form">
+    <div class="field">
+      <%= f.text_field :email, placeholder: "Email", :class => "email" %>
+    </div>
+  </div>
+  <div class="col-lg-2 col-sm-4 submit-form">
+    <div class="main-page">
+      <%= f.submit 'Enter Now' %>
+    </div>
+  </div>
+</div>
+<% end %>

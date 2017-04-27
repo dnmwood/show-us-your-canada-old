@@ -1,0 +1,241 @@
+<%= form_for(@user, url: update_user_url) do |t| %>
+<div class="entry-instructions">
+  <div class="container-fluid entry-top">
+    <% if @user.errors.any? %>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+          <% @entry.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <% if @entry.errors.any? %>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+          <% @entry.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="row entry-row">
+      <div class="col-lg-3 col-lg-offset-1 photo-column">
+        <img id="suyc-entry" src="http://res.cloudinary.com/dx3z90dgl/image/upload/v1483451983/RTO12Logo_Angled-01_a4euwt.svg">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="vertical-text">SHARE YOUR STORY TO WIN A TRIP HOME TO CELEBRATE CANADA’S 150TH!</h1>
+        <h2 class="center-text">Sign up with email, then post your memory (a photo and a few words) about your adventure in the great Canadian wilderness. 5 Finalists with the most votes will be eligible to be selected on June 29, 2017 for the Grand Prize of a trip home to the Explorers’ Edge region of Ontario this summer. Don’t forget to share your story with friends in your new country when the voting begins May 22, 2017 - they could win their own trip too!</h2>
+        <div class="user-form">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="field">
+                <%= t.text_field :name, required: true, placeholder: "First Name", :class => "black-text name-field" %>
+              </div><br>
+            </div>
+            <div class="col-lg-6">
+              <div class="field">
+                <%= t.text_field :last_name, required: true, placeholder: "Last Name", :class => "black-text name-field" %>
+              </div><br>
+            </div>
+            <div class="col-lg-12">
+              <div class="field">
+                <%= t.text_field :street, required: true, placeholder: "Street Address", :class => "black-text name-field" %>
+              </div><br>
+            </div>
+            <div class="col-lg-6">
+              <div class="field">
+                <%= t.text_field :country, required: true, placeholder: "Country", :class => "black-text name-field" %>
+              </div><br>
+            </div>
+            <div class="col-lg-6">
+              <div class="field">
+                <%= t.text_field :state, required: true, placeholder: "State/Province", :class => "black-text name-field" %>
+              </div><br>
+            </div>
+            <div class="col-lg-6">
+              <div class="field">
+                <%= t.text_field :city, required: true, placeholder: "City", :class => "black-text name-field" %>
+              </div><br>
+            </div>
+            <div class="col-lg-6">
+              <div class="field">
+                <%= t.text_field :postal_code, required: true, placeholder: "Postal/Zip Code", :class => "black-text name-field" %>
+              </div><br>
+            </div>
+            <% if current_user.provider == nil %>
+              <div class="col-lg-6">
+                <div class="field">
+                  <%= t.password_field :password, required: true, placeholder: "Password", :class => "black-text name-field" %>
+                </div><br>
+              </div>
+              <div class="col-lg-6">
+                <div class="field">
+                  <%= t.password_field :password_confirmation, required: true, placeholder: "Confirm Password", :class => "black-text name-field" %>
+                </div><br>
+              </div>
+            <% end %>
+
+          </div>
+          <div class="field t_c entry-t-c">
+            <h5 class="home-checkbox-text"><%= t.check_box :terms_conditions, {required: true, checked: false}, true, false %> I have read the <a class="text-link" href="http://res.cloudinary.com/dx3z90dgl/image/upload/v1492008402/FINAL_RULES_REGS_APRIL_10_2017_2_xlfjtv.pdf">rules and regulations</a> governing the contest and agree to the terms.</a></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= t.fields_for @entry, html: { multipart: true } do |entry_form| %>
+  <div class="container-fluid entry-photo-step">
+    <div class="container-fluid">
+      <div class="row wrapper">
+        <div class="col-md-offset-1 col-md-3 step">
+          <h1 class="step-header">UPLOAD YOUR PHOTO</h1>
+          <h3>Choose a photo of your favourite Canadian wilderness adventure</h3>
+          <p>IMPORTANT NOTE: To be eligible, the Photo must: (i) be in one of the following formats: .jpg, .jpeg, .png, or .gif; and (ii) otherwise comply with these Rules (including, but not limited to, the specific Submission Requirements.</p>
+          <i class="fa fa-camera-retro" id="camera-upload" aria-hidden="true"></i>
+        </div>
+        <div class="col-md-4 col-sm-12 photo-column">
+          <%= image_tag("http://res.cloudinary.com/dx3z90dgl/image/upload/v1488488109/Polaroid_new_hxieck.jpg", class:"polaroid-home") %>
+        </div>
+        <div class="field col-md-4 fake-button">
+          <div class="carrierwave-wave-field">
+            <%= entry_form.label 'avatar', 'Upload file', class: "upload-label" %>
+            <%= entry_form.file_field :avatar, id: "avatar-upload", required: true %>
+            <% if @entry.filter %>
+              <%= image_tag @entry.filter, id: "img_prev", class:"img-thumbnail", alt:"your image" %>
+            <% elsif @entry.avatar_url %>
+              <%= image_tag @entry.avatar_url, id: "img_prev", class:"img-thumbnail", alt:"your image" %>
+            <% else %>
+            <img id="img_prev" src="#" alt="your image" class="img-thumbnail hidden"> <br/>
+            <% end %>
+          </div>
+        </div>
+        <!-- <div class="col-md-7 col-sm-12 step-row">
+          <div class="col-md-4 step">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            <h3>2. Tell us the story behind the photo.</h3>
+          </div>
+          <div class="col-md-4 step">
+            <i class="fa fa-upload" aria-hidden="true"></i>
+            <h3>3. Submit your entry and add a filter</h3>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+
+<div class="container-fluid already-submitted">
+  <div class="row already-submit-row">
+      <% if current_user.entry %>
+        <h1> You have already submitted an entry for this contest.<br>
+        <div class="submit-button button-main">
+           <%= link_to 'VIEW MY ENTRY', current_user %>
+        </div>
+      <% else %>
+
+      <div class="container-fluid">
+
+          <% if @entry.errors.any? %>
+            <div class="error_messages">
+              <h2>Form is invalid</h2>
+              <ul>
+                <% @entry.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+
+            <div class="row">
+              <div class="col-md-offset-1 col-md-3 step step-3">
+                <h1 class="step-header">TELL US YOUR STORY</h1>
+                <h3>Tell us the story behind the photo, and where it was taken (Must be longer than 30 words).</h3>
+                <i class="fa fa-pencil-square-o" aria-hidden="true" id="camera-upload"></i>
+              </div>
+
+              <div class="field col-md-offset-2 col-md-5">
+                <%= entry_form.text_field :title, required: true, maxlength: @maximum_title_length, id: 'title_text', placeholder: 'Title', :class => "black-text" %>
+                <h4 class="counter">Chars left: <span id="counter" data-maximum-length="<%= @maximum_title_length %>"><%= @maximum_title_length %></span></h4>
+                <%= entry_form.text_area :story, required: true, maxlength: @maximum_story_length, minlength: @minimum_story_length, size: "0x15", placeholder: "Tell us the story!", id: "story-box", :class => "black-text" %><br>
+                <h4 class="counter" id="story-counter-show">Minumum Words: <span id="counter_large_show" data-maximum-story-length="<%= @maximum_story_length %>" data-minimum-story-length="<%= @minimum_story_length %>"><%= @minimum_story_length %></span></h4>
+                <h4 class="counter" id="story-counter-hidden">Chars left: <span id="counter_large_hidden" data-maximum-story-length="<%= @maximum_story_length %>" data-minimum-story-length="<%= @minimum_story_length %>"><%= @minimum_story_length %></span></h4>
+                <!-- <div class="submit-right col-md-3 col-md-offset-9 col-sm-4 col-sm-offset-8 col-xs-12">
+                  <%= entry_form.submit 'Submit', class: "button-main edit-button hide story-submit" %>
+                </div> -->
+                <h1 class="step-header">My great Canadian memory is from: </h1>
+                <%= entry_form.select :location, ["Please Select Where Your Memory is From", "Algonquin Park", "Almaguin Highlands", "Loring-Restoule", "Muskoka", "Parry Sound", "Another Spot in the Great Canadian Wilderness"], {}, {class: "form-control"} %>
+                <div class="actions">
+                  <%= t.submit 'Submit', :id => "update-user-submit" %>
+                </div>
+                <% if current_user && current_user.entry %>
+                <div class="delete-entry-container col-md-5 col-md-offset-7 col-sm-5 col-sm-offset-7 col-xs-12">
+                  <%= link_to 'Delete Entry', "/entries/#{@user.entry.id}", method: :delete, data: {confirm: 'Are you sure?'}, class: "button-red delete-entry" %>
+                </div>
+                <% end %>
+              </div>
+          </div>
+      </div>
+
+
+      <script>
+          $( document ).on('turbolinks:load', function() {
+            var title_text = $("#title_text");
+            var story_text = $("#story-box");
+            var counter     = $("#counter");
+            var counterlargeshow = $("#counter_large_show")
+            var counterlargehidden = $("#counter_large_hidden")
+            var storyCounter = $("#story-counter-hidden")
+            var storyCounterShow = $("#story-counter-show")
+            var max_length  = counter.data("maximum-length");
+            var max_length_story = counterlargeshow.data("maximum-story-length") - 10;
+            var min_length_story = counterlargeshow.data("minimum-story-length")
+
+            counter.text(max_length - $("#title_text").val().length);
+            counterlargeshow.text(min_length_story - $("#story-box").val().length);
+            function wordCount( val ){
+              var wom = val.match(/\S+/g);
+              return {
+                  words : wom ? wom.length : 0,
+                  characters         : val.length,
+              };
+            }
+
+            title_text.keyup(function() {
+                counter.text(max_length - $(this).val().length);
+            });
+
+            story_text.keyup(function() {
+              var v = wordCount( this.value )
+              console.log(min_length_story);
+              if (min_length_story - v.words <= 0) {
+                storyCounter.css("display", "block")
+                storyCounterShow.css("display", "none")
+                counterlargehidden.text(max_length_story - v.characters);
+              } else if (min_length_story - v.words >= 0) {
+                counterlargeshow.text(min_length_story - v.words);
+                storyCounter.css("display", "none")
+                storyCounterShow.css("display", "block")
+              } else {
+                counterlargeshow.text(min_length_story - v.words);
+              }
+            });
+
+            $("#update-user-submit").on("click", function(e){
+              var v = wordCount( story_text.val() )
+              if (min_length_story - v.words > 0) {
+                e.preventDefault()
+                alert("Need at least 30 words for the story.")
+              }
+            });
+
+          });
+      </script>
+      <% end %>
+  </div>
+  <% end %>
+</div>
+<% end %>

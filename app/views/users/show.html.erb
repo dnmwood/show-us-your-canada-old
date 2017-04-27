@@ -1,0 +1,213 @@
+<% content_for :head do %>
+  <meta property="og:type"   content="article" />
+  <meta property="og:url"    content="http://www.shareyourcanada150.com<%= entry_path(@user.entry) %>" />
+  <meta property="og:title"  content="This is <%= @user.entry.name %>'s Canada" />
+  <meta property="og:image"  content="<%= @user.entry.filter %>" />
+<% end %>
+
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '144718155884404'); // Insert your pixel ID here.
+fbq('track', 'PageView');
+	fbq('track', 'Lead');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=144718155884404&ev=PageView&noscript=1"
+/></noscript>
+<!-- DO NOT MODIFY -->
+<!-- End Facebook Pixel Code -->
+
+<!-- RTO FBCODE -->
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '711841852260093'); 
+fbq('track', 'PageView');
+	
+	fbq('track', 'CompleteRegistration');
+	
+
+</script>
+<noscript>
+ <img height="1" width="1" 
+src="https://www.facebook.com/tr?id=711841852260093&ev=PageView
+&noscript=1"/>
+</noscript>
+
+<% if @user.entry %>
+<!-- if an entry exists -->
+
+<div class="container-fluid entry-show-main">
+
+  <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 this-is profile">
+    <div class="row this-is-row profile">
+      <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 this-is-text">
+        <%= image_tag("http://res.cloudinary.com/dx3z90dgl/image/upload/v1485128691/RTO12Logo_01-05_crpoun.svg") %>
+      </div>
+      </div>
+    </div>
+
+</div>
+<!-- if the entry has a filter already -->
+  <% if @user.entry.filter %>
+
+  <style media="screen">
+    .entry-show-main { background-image: url(<%= @user.entry.filter %>); }
+  </style>
+
+</div>
+
+<div class="container-fluid user-show-main-bottom">
+  <div class="row your-entry">
+  </div>
+  <div class="row user-show-bottom">
+    <div class="col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1 entry-image-focus">
+      <% if @user.entry.filter %>
+        <%= image_tag(@user.entry.filter) %>
+      <% else %>
+        <%= image_tag(@user.entry.avatar_url) %>
+      <% end %>
+    </div>
+    <div class="col-md-5 col-sm-5 user-story">
+      <%= @user.entry.story %><br>
+      <% if @user.id == current_user.id %>
+      <div class="submit-button button-red">
+        <%= link_to 'Edit Entry', edit_entry_path(@user.entry) %>
+      </div>
+      <% end %>
+      <div class="vote-count">
+        <!-- <h1>Total Votes: <%# @user.entry.votes.count %></h1> -->
+        <div class="row">
+          <div class="col-md-4 sharing">
+            <a href="#" class="prettySocial fa fa-facebook" data-title="This is <%= @user.entry.name %>'s Canada" data-url="https://show-us-your-canada-old.herokuapp.com<%= entry_path(@user.entry) %>" data-type="facebook" data-description="This is <%= @user.entry.name %>'s Canada" data-media="<%= @user.entry.filter %>"></a>
+            <a href="#" class="prettySocial fa fa-twitter" data-title="This is <%= @user.entry.name %>'s Canada" data-url="https://show-us-your-canada-old.herokuapp.com<%= entry_path(@user.entry) %>" data-type="twitter" data-description="This is <%= @user.entry.name %>'s Canada" data-media="<%= @user.entry.filter %>"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container-fluid share-section">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 take-the-quiz">
+      <div class="test-your-knowledge">
+        <h2>TEST YOUR CANADIANA KNOWLEDGE & RECEIVE 10 EXTRA VOTES</h2>
+        <button>TAKE THE QUIZ</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+  <% else %>
+
+<!-- if no filter exists -->
+  <style media="screen">
+    .entry-show-main { background-image: url(<%= @user.entry.avatar_url %>); }
+  </style>
+
+</div>
+
+
+
+<!-- end of main container div -->
+
+<div class="container-fluid filter-background">
+  <div class="row">
+
+    <div class="col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1">
+      <div id="entry_image">
+        <%= image_tag(@user.entry.avatar_url) %>
+        <h3 class="image-hashtag">#SHAREYOURCANADA150</h3>
+      </div>
+      <div class="buttons-container">
+         <button class="filter-button" data-filter="al_dente">Misty Morning</button>
+         <button class="filter-button" data-filter="athena">Loon Call</button>
+         <button class="filter-button" data-filter="aurora">Tree Tops</button>
+         <button class="filter-button" data-filter="daguerre">Bonfire Smoke</button>
+         <button class="filter-button" data-filter="eucalyptus">Lakeside</button>
+         <button class="filter-button" data-filter="fes">Calm Sunset</button>
+      </div>
+
+
+      <% if @user.entry %>
+        <%= form_for @user.entry, :method => :PUT do |f| %>
+          <%= f.hidden_field :filter, id: "hidden-filter-send" %>
+          <%= f.hidden_field :filter_no_hashtag, id: "hidden-filter-no-hashtag" %>
+          <%= f.submit 'Save Filter', id: "save-filter", class: "button-main" %>
+        <% end %>
+      <% end %>
+      <!-- end of form -->
+    </div>
+
+        <div class="col-md-4 col-sm-4 story-column">
+          <div class="story">
+            <%= @user.entry.story %>
+          </div>
+          <% if @user.id == current_user.id %>
+          <div class="submit-button button-red">
+            <%= link_to 'Edit Entry', edit_entry_path(@user.entry) %>
+          </div>
+          <% end %>
+          <div class="vote-count">
+            <!-- <h1>Total Votes: <%# @user.entry.votes.count %></h1> -->
+            <div class="sharing">
+              <a href="#" class="prettySocial fa fa-facebook" data-title="This is <%= @user.entry.name %>'s Canada" data-url="https://show-us-your-canada-old.herokuapp.com<%= entry_path(@user.entry) %>" data-type="facebook" data-description="This is <%= @user.entry.name %>'s Canada" data-media="<%= @user.entry.filter %>"></a>
+              <a href="#" class="prettySocial fa fa-twitter" data-title="This is <%= @user.entry.name %>'s Canada" data-url="https://show-us-your-canada-old.herokuapp.com<%= entry_path(@user.entry) %>" data-type="twitter" data-description="This is <%= @user.entry.name %>'s Canada" data-media="<%= @user.entry.filter %>"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- <div class="container-fluid share-section">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 take-the-quiz">
+            <div class="test-your-knowledge">
+              <h2>TEST YOUR CANADIANA KNOWLEDGE & RECEIVE 10 EXTRA VOTES</h2>
+              <button>TAKE THE QUIZ</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+    <% end %>
+    <!-- end of if statement whether filter exists -->
+
+
+    <% else %>
+
+    <div class="container-fluid create-your-entry">
+      <div class="col-md-8 col-md-offset-1 user-share-memory">
+        <h1>Share your best Canadian memory for a chance to win [prize]!</h1>
+        <a class="button-main" href="/entries/new">ENTER NOW</a>
+      </div>
+    </div>
+
+  <% end %>
+
+</div>
+  <!-- end of condition of whether entry exists -->
+
+  <div class="container-fluid thanks-for-voting">
+    <div class="row">
+      <div class="col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1">
+        <h1 class="thankyou ty-top">Check out your competition!</h1>
+        <button class="submit-button button-main"><a href="/entries">VIEW ENTRIES</a></button>
+      </div>
+      <div class="col-md-5">
+      </div>
+    </div>
+  </div>

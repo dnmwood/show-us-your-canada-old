@@ -1,0 +1,74 @@
+<div class="container-fluid">
+  <%= form_for @entry, html: { multipart: true } do |entry_form| %>
+
+    <% if @entry.errors.any? %>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+          <% @entry.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+      <div class="row">
+        <div class="field col-md-5 col-sm-5 col-xs-11 fake-button">
+          <div class="carrierwave-wave-field">
+            <%= entry_form.file_field :avatar, id: "avatar-upload" %>
+            <% if @entry.filter %>
+              <%= image_tag @entry.filter, id: "img_prev", class:"img-thumbnail", alt:"your image" %>
+            <% elsif @entry.avatar_url %>
+              <%= image_tag @entry.avatar_url, id: "img_prev", class:"img-thumbnail", alt:"your image" %>
+            <% else %>
+            <img id="img_prev" src="#" alt="your image" class="img-thumbnail hidden"> <br/>
+            <i class="fa fa-camera-retro" id="camera-upload" aria-hidden="true"></i>
+            <% end %>
+            <h1 class="black-text">Select File</h1>
+            <p class="white-text">Image size must be at least 800px wide by 400px in height.</p>
+          </div>
+        </div>
+
+        <div class="field col-md-6 col-sm-6 col-xs-11">
+          <%= entry_form.text_field :title, required: true, maxlength: @maximum_title_length, id: 'title_text', placeholder: 'Title' %>
+          <h4 class="counter">Chars left: <span id="counter" data-maximum-length="<%= @maximum_title_length %>"><%= @maximum_title_length %></span></h4>
+          <%= entry_form.text_area :story, required: true, maxlength: @maximum_story_length, size: "0x15", placeholder: "Tell us the story!", id: "story-box" %><br>
+          <h4 class="counter">Chars left: <span id="counter_large" data-maximum-story-length="<%= @maximum_story_length %>"><%= @maximum_story_length %></span></h4>
+          <div class="submit-right col-md-3 col-md-offset-9 col-sm-4 col-sm-offset-8 col-xs-12">
+            <%= entry_form.submit 'Submit', class: "button-main edit-button" %>
+          </div>
+          <% if current_user && current_user.entry %>
+          <div class="delete-entry-container col-md-5 col-md-offset-7 col-sm-5 col-sm-offset-7 col-xs-12">
+            <%= link_to 'Delete Entry', "/entries/#{@user.entry.id}", method: :delete, data: {confirm: 'Are you sure?'}, class: "button-red delete-entry" %>
+          </div>
+          <% end %>
+        </div>
+    </div>
+
+  <% end %>
+</div>
+
+
+<script>
+    $( document ).on('turbolinks:load', function() {
+      var title_text = $("#title_text");
+      var story_text = $("#story-box");
+      var counter     = $("#counter");
+      var counterlarge = $("#counter_large")
+      var max_length  = counter.data("maximum-length");
+      var max_length_story = counterlarge.data("maximum-story-length") - 10;
+
+      counter.text(max_length - $("#title_text").val().length);
+      counterlarge.text(max_length_story - $("#story-box").val().length);
+
+      title_text.keyup(function() {
+          counter.text(max_length - $(this).val().length);
+      });
+
+      story_text.keyup(function() {
+          counterlarge.text(max_length_story - $(this).val().length);
+      });
+
+    });
+</script>

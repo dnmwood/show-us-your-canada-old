@@ -1,0 +1,107 @@
+// Place all the styles related to the Sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$font-regular: 'Work Sans', sans-serif;
+$primary1: #4a5159;
+$primary2: #d24545;
+$primary3: #c5c2c5;
+$primary4: #008cb2;
+$secondary1: #574942;
+$secondary2: #3f9989;
+$secondary3: #396370;
+$secondary4: #e5e3e3;
+
+
+.login {
+  background-image: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1483407521/Section2_Background_ct7a77.jpg");
+  background-size: cover;
+}
+
+div.log-in {
+  text-align: left;
+}
+
+.log-in-form {
+  margin-bottom: 80px;
+  margin-top: 120px;
+  background: white;
+  padding-bottom: 30px;
+  border-radius: 5px;
+  h1 {
+    color: $primary1;
+    font-family: $font-regular;
+  }
+}
+
+div.password-field {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.account {
+  margin: auto;
+  border: none;
+}
+
+#login-button, #signup-link {
+  background-color: #574942;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  font-family: "Work Sans", sans-serif;
+  font-size: 1.8rem;
+  border-radius: 5px;
+  border: none;
+  color: white;
+
+  a {
+    color: white;
+  }
+
+  &:hover {
+    background: $secondary4;
+    color: $primary1 !important;
+    text-decoration: none;
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    -o-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+    a {
+      color: $primary1 !important;
+      text-decoration: none;
+    }
+  }
+}
+
+.error-container {
+  background-image: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1483407530/EnterToWin_Background_gvafys.jpg");
+  margin-top: 50px;
+}
+
+.account-row {
+  padding: 70px 20px;
+  h1 {
+    color: white;
+  }
+}
+
+.error_messages {
+  color: white;
+}
+
+@media (max-width: 1300px) and (min-width: 768px) {
+  .facebook-login-column {
+    margin-left: 25px;
+  }
+}
+
+
+@media (max-width: 767px) {
+
+  .facebook-login-column {
+    padding-top: 15px;
+  }
+
+  div.log-in {
+    text-align: center;
+  }
+}

@@ -1,0 +1,38 @@
+
+
+<div class="row">
+<%= form_for(@email, url: email_index_path) do |f| %>
+
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="col-sm-offset-1 col-sm-8 email-form">
+    <div class="field">
+      <%= f.text_field :email, placeholder: "Email", :class => "email-only" %>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="main-page">
+      <%= f.submit 'Submit' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div class="field t_c homepage-bottom-terms">
+      <form action="/action_page" method="get">
+        <h5 class="home-checkbox-text"><input id="email_opt_in" value="true">Please send me more info on traveling in the wilderness north of Toronto.</input></h5>
+          <!-- <div class="field t_c homepage-bottom-terms"> -->
+      <!-- <h5 class="home-checkbox-text"> Please send me more info on traveling in the wilderness north of Toronto.</h5> -->
+      <%#= f.label :terms_of_service %>
+      <%#= f.check_box :terms_of_service %>
+    </div>
+    </div>
+  </div>
+</div>

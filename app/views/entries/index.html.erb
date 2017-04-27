@@ -1,0 +1,67 @@
+<div class="container-fluid all-entries">
+
+  <div class="row">
+    <div class="col-md-7 col-md-offset-1 col-sm-7 col-sm-offset-1 entry-top-text">
+      <h1>READ THE STORIES, GET READY TO VOTE</h1>
+      <h4>See for yourself the inspiring stories posted by Canadians and vote for your favorite between May 22 and June 26, 2017.</h4>
+      <h4>By voting, you’ll be entered to win a fabulous trip to Canada for you and a guest to celebrate our nation’s 150th birthday – worth $10K CDN. (Beauty, eh?!)</h4>
+      <!-- <div class="submit-button">
+        <%# link_to "READ THE STORIES", new_entry_path, class:"button-main" %>
+      </div> -->
+      <h4>READ THE STORIES</h4>
+    </div>
+    <div class="col-md-3 col-sm-3">
+      <img id="logo-vote" src="http://res.cloudinary.com/dx3z90dgl/image/upload/v1485797844/RTO12Logo_Angled_NEW-01_m8ufwu.svg">
+    </div>
+  </div>
+  <div class="row sort-row">
+    <div class="col-md-4">
+      <h3 class="text-right">Sort Memories by: </h3>
+    </div>
+    <div class="col-md-8">
+      <div class="sort-text">
+        <h3><a href="/entries?utf8=✓&search=on&commit=Search">REGIONAL EXPERIENCES</a></h3>
+        <h3>
+          |
+        </h3>
+        <h3><a href="/entries">SHOW ALL MEMORIES</a></h3>
+      </div>
+    </div>
+  </div>
+<div class="row-wrapper" id="read-the-stories">
+
+    <% @entries.in_groups_of(4, false).each do |group| %>
+      <div class="row">
+        <% group.each do |entry| %>
+            <div class="col-md-3 col-sm-6 col-xs-12 all-images" data-link="<%= entry_path(entry) %>">
+              <% if entry.filter_no_hashtag %>
+                <%= link_to image_tag(entry.filter_no_hashtag), lazy: true %>
+              <% else %>
+                <%= link_to image_tag(entry.avatar_url), lazy: true %>
+              <% end %>
+              <div class="hover-content-smaller-top">
+                <span class="hover-user smaller"><%= entry.user.name %></span><br>
+                <span class="hover-title smaller">
+                  <% if entry.title %>
+                    <%= entry.title %>
+                  <% else %>
+                    This is my Canada
+                  <% end %>
+                </span><br>
+                <!-- <span class="hover-votes"><h3><i class="fa fa-heart-o" aria-hidden="true"></i><%# entry.votes.where(email_confirmed: true).count %> VOTES </h3></span> -->
+              </div>
+              <% if entry.location != nil %>
+                <img id="authentic-image" src="http://res.cloudinary.com/dx3z90dgl/image/upload/v1487365509/Updated_Regional_Logo_01-02_a83j3k.png">
+              <% end %>
+              <div class="hover-content-smaller">
+                <span class="hover-share">SHARE</span><br>
+                <a href="#" class="prettySocial fa fa-facebook sign-in-facebook" data-title="This is <%= entry.name %>'s Canada" data-url="https://show-us-your-canada-old.herokuapp.com<%= entry_path(entry) %>" data-type="facebook" data-description="This is <%= entry.name %>'s Canada" data-media="<%= entry.avatar_url %>"></a>
+                <a href="#" class="prettySocial fa fa-twitter sign-in-facebook" data-title="This is <%= entry.name %>'s Canada" data-url="https://show-us-your-canada-old.herokuapp.com<%= entry_path(entry) %>" data-type="twitter" data-description="This is <%= entry.name %>'s Canada" data-media="<%= entry.avatar_url %>"></a>
+              </div>
+          </div>
+        <% end %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

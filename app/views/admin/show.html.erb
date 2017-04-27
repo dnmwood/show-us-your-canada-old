@@ -1,0 +1,54 @@
+<div class="container-fluid admin-show-main">
+
+  <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 this-is">
+    <div class="row this-is-row">
+      <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-xs-4 col-xs-offset-2 this-is-text">
+        <span class="left-bracket"><%= image_tag("http://res.cloudinary.com/dx3z90dgl/image/upload/v1483477142/Brackets-05_vx1mwe.svg") %></span>
+        <h1>This is<br>
+           our</h1>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-4 maple-leaf">
+        <%= image_tag("http://res.cloudinary.com/dx3z90dgl/image/upload/v1483475882/RTO12Logo_01-03_qybe52.svg") %>
+        <span class="right-bracket"><%= image_tag("http://res.cloudinary.com/dx3z90dgl/image/upload/v1483477142/Brackets-08_inh4io.svg") %></span>
+      </div>
+    </div>
+
+  </div>
+
+  <% if @admin.filter %>
+
+  <style media="screen">
+    .admin-show-main { background-image: url(<%= @entry.filter %>); }
+  </style>
+
+  <% else %>
+
+  <style media="screen">
+    .admin-show-main { background-image: url(<%= @admin.image_url %>); }
+  </style>
+
+  <% end %>
+
+</div>
+
+<div class="container-fluid entry-show-main-bottom">
+  <div class="row entry-show-bottom">
+    <div class="col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1 entry-image-focus">
+      <% if @admin.filter %>
+        <%= image_tag(@admin.filter) %>
+      <% else %>
+        <%= image_tag(@admin.image_url) %>
+      <% end %>
+    </div>
+    <div class="col-md-5 col-sm-5 entry-story">
+      <% if @admin.title %>
+      <h1><%= @admin.title %></h1>
+      <% else %>
+      <h1>This is our Canada</h1>
+      <% end %>
+      <%= @admin.story %>
+      <h4>This is our Canada</h4>
+    </div>
+  </div>
+
+</div>

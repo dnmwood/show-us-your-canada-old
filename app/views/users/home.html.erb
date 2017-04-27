@@ -1,0 +1,214 @@
+
+
+<section class="top-section">
+  <div class="container-fluid top-container">
+		<div class="row">
+			<div class="col-md-5">
+				<div class="hero-images">
+					<img src="http://res.cloudinary.com/dx3z90dgl/image/upload/v1487091807/RTO12Logo_Angled_NEW-02_qqtdvc.png" alt="Rto12logo angled 01 a4euwt">
+				</div>
+      </div>
+    </div>
+		<div class="row row-entry">
+			<div class="col-md-7 email-capture-box">
+				<div class="homepadborder">
+					<h1 class="herowhiteh1">HEY CANUCKS!</h1>
+					<h4 class="herowhiteh4">Share your favourite story about the great Canadian wilderness to celebrate Canada’s 150th and you could win a $10K trip home!</h4>
+						<div class="signup-form">
+							<%= render 'form' %>
+						</div>
+				</div>
+        <div class="arrow bounce">
+
+        </div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="your-adventure">
+  <div class="container-fluid">
+    <div class="col-lg-7 col-md-9">
+      <div class="bracket-text">
+        <h1 style="font-weight: 400;">SHARE YOUR CANADA</h1>
+    		<h1>WIN A TRIP HOME</h1>
+    		<h3>Explorers’ Edge wants to bring one lucky Canadian ex-pat and a guest home to celebrate Canada’s 150th birthday! To be eligible to win, simply upload your ‘great Canadian wilderness’ story and photo between April 13 and May 20, 2017. Then from May 22 to June 26, 2017, invite your friends in your new country to vote for your story – the 5 Finalists with the most votes will be eligible to win the Grand Prize of a trip home to Ontario’s great outdoors!</h3>
+      <div class="your-adventure-button-bottom">
+        <a href="/entries" class="button-main vote-canada-button-top">FIND YOUR FAVOURITE CANADIAN STORY</a>
+      </div>
+	  </div>
+    </div>
+  </div>
+  </section>
+
+<section class="enter-to-win">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-1">
+        <h1>TRUE STORIES of the<br>TRUE NORTH</h1>
+        <h3>Let the world take your word for it – not ours – on just how amazing Canada is. Post your story about the stunning landscapes, the sparkling waters, your time around a bonfire, in a canoe or on a dock, and then share your post with friends in your new country so they can vote for YOU. You could win a trip home to Canada, and one of your friends could win a spectacular getaway to the wilderness north of Toronto too!</h3>
+        <div class="enter-to-win-button">
+          <a id="enter-now-button" class="button-main">ENTER NOW</a>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <img src="http://res.cloudinary.com/dx3z90dgl/image/upload/v1486396186/Polaroid_uiq7pm.png" alt="Rto12logo angled 01 a4euwt" class="img-biker">
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section class="choose-canada">
+    <div class="container-fluid">
+      <div class="green-board">
+        <div class="col-sm-8 col-sm-offset-2 board-text">
+          <h2>CHECK OUT THE STORIES</h2>
+          <h1>BE INSPIRED BY CANADIANS</h1>
+          <a class="button-main vote-canada-button" href="/entries">READ MORE</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid entries-last-six">
+    <div class="row flex-md-top">
+    <% @entries.last(2).each do |entry| %>
+      <div class="col-md-6 image-block" id="image<%= entry.id %>" data-link="<%= entry_path(entry) %>">
+
+      <% if entry.filter_no_hashtag %>
+      <style>
+        #image<%= entry.id %> { background-image: url(<%= entry.filter_no_hashtag %>); background-size: cover; height: 400px; background-repeat: no-repeat; background-position: center center;}
+      </style>
+      <% else %>
+      <style>
+        #image<%= entry.id %> { background-image: url(<%= entry.avatar_url %>); background-size: cover; height: 400px; background-repeat: no-repeat; background-position: center center;}
+      </style>
+      <% end %>
+        <%#= image_tag(entry.filter) %>
+        <%#= cl_image_tag(entry.filter, :width => 800, :height => 400, :crop => "fill") %>
+        <div class="hover-content-top">
+          <span class="hover-user"><%= entry.user.name %></span><br>
+          <span class="hover-title"><h3>
+            <% if entry.title %>
+            <%= entry.title %>
+            <% else %>
+            This is our Canada
+            <% end %>
+          </h3></span><br><br><br>
+          <!-- <span class="hover-votes"><h3><i class="fa fa-heart-o" aria-hidden="true"></i><%# entry.votes.where(email_confirmed: true).count %> VOTES </h3></span><br> -->
+          <div class="hover-content-bottom-right">
+            <%= link_to "SEE MORE", entry_path(entry) %>
+          </div>
+        </div>
+        <% if entry.location != nil %>
+          <img class="authentic-image-home" src="http://res.cloudinary.com/dx3z90dgl/image/upload/v1487365509/Updated_Regional_Logo_01-02_a83j3k.png">
+        <% end %>
+        <div class="hover-content-bottom">
+          <span class="hover-share">SHARE</span><br>
+          <a href="#" class="prettySocial fa fa-facebook sign-in-facebook" data-title="This is <%= entry.name %>'s Canada" data-url="http://www.shareyourcanada150.com<%= entry_path(entry) %>" data-type="facebook" data-description="This is <%= entry.name %>'s Canada" data-media="<%= entry.avatar_url %>"></a>
+          <a href="#" class="prettySocial fa fa-twitter sign-in-facebook" data-title="This is <%= entry.name %>'s Canada" data-url="http://www.shareyourcanada150.com<%= entry_path(entry) %>" data-type="twitter" data-description="This is <%= entry.name %>'s Canada" data-media="<%= entry.avatar_url %>"></a>
+        </div>
+      </div>
+    <% end %>
+    </div>
+    <div class="row flex-md-middle">
+    <% @admin.last(2).each do |admin| %>
+      <div class="col-md-6 image-block" id="admin<%= admin.id %>" data-link="<%= admin_path(admin) %>">
+
+        <% if admin.filter %>
+
+        <style>
+          #admin<%= admin.id %> { background-image: url(<%= admin.filter %>); background-size: cover; height: 400px; background-repeat: no-repeat; background-position: center center;}
+        </style>
+        <% else %>
+        <style>
+          #admin<%= admin.id %> { background-image: url(<%= admin.image_url %>); background-size: cover; height: 400px; background-repeat: no-repeat; background-position: center center;}
+        </style>
+        <% end %>
+
+        <%#= image_tag(entry.filter) %>
+        <div class="hover-content-top">
+          <span class="hover-user"><%= admin.name %></span><br>
+          <span class="hover-title"><h3>
+            This is our Canada
+          </h3></span><br>
+          <span class="hover-votes"><h3><i class="fa fa-heart-o" aria-hidden="true"></i></h3></span><br>
+          <div class="hover-content-bottom-right">
+            <%= link_to "SEE MORE", admin_path(admin) %>
+          </div>
+        </div>
+        <img class="authentic-image-home" src="http://res.cloudinary.com/dx3z90dgl/image/upload/v1487365509/Updated_Regional_Logo_01-02_a83j3k.png">
+        <div class="hover-content-bottom">
+          <span class="hover-share">SHARE</span><br>
+          <a href="#" class="prettySocial fa fa-facebook sign-in-facebook" data-title="This is <%= admin.name %>'s Canada" data-url="http://www.shareyourcanada150.com<%= admin_path(admin) %>" data-type="facebook" data-description="This is <%= admin.name %>'s Canada" data-media="<%= admin.image %>"></a>
+          <a href="#" class="prettySocial fa fa-twitter sign-in-facebook" data-title="This is <%= admin.name %>'s Canada" data-url="http://www.shareyourcanada150.com<%= admin_path(admin) %>" data-type="twitter" data-description="This is <%= admin.name %>'s Canada" data-media="<%= admin.image %>"></a>
+        </div>
+      </div>
+    <% end %>
+    </div>
+    <div class="row flex-md-bottom">
+    <% @entries.offset(2).last(2).each do |entry| %>
+      <div class="col-md-6 image-block" id="image<%= entry.id %>" data-link="<%= entry_path(entry) %>">
+
+        <% if entry.filter_no_hashtag %>
+        <style>
+          #image<%= entry.id %> { background-image: url(<%= entry.filter_no_hashtag %>); background-size: cover; height: 400px; background-repeat: no-repeat; background-position: center center;}
+        </style>
+        <% else %>
+        <style>
+          #image<%= entry.id %> { background-image: url(<%= entry.avatar_url %>); background-size: cover; height: 400px; background-repeat: no-repeat; background-position: center center;}
+        </style>
+        <% end %>
+
+        <%#= image_tag(entry.filter) %>
+        <div class="hover-content-top">
+          <span class="hover-user"><%= entry.user.name %></span><br>
+          <span class="hover-title"><h3>
+            <% if entry.title %>
+            <%= entry.title %>
+            <% else %>
+            This is our Canada
+            <% end %>
+          </h3></span><br><br><br>
+          <!-- <span class="hover-votes"><h3><i class="fa fa-heart-o" aria-hidden="true"></i><%# entry.votes.where(email_confirmed: true).count %> VOTES </h3></span><br> -->
+          <div class="hover-content-bottom-right">
+            <%= link_to "SEE MORE", entry_path(entry) %>
+          </div>
+        </div>
+        <% if entry.location != nil %>
+          <img class="authentic-image-home" src="http://res.cloudinary.com/dx3z90dgl/image/upload/v1487365509/Updated_Regional_Logo_01-02_a83j3k.png">
+        <% end %>
+        <div class="hover-content-bottom">
+          <span class="hover-share">SHARE</span><br>
+          <a href="#" class="prettySocial fa fa-facebook sign-in-facebook" data-title="This is <%= entry.name %>'s Canada" data-url="https://show-us-your-canada-old.herokuapp.com<%= entry_path(entry) %>" data-type="facebook" data-description="This is <%= entry.name %>'s Canada" data-media="<%= entry.avatar_url %>"></a>
+          <a href="#" class="prettySocial fa fa-twitter sign-in-facebook" data-title="This is <%= entry.name %>'s Canada" data-url="https://show-us-your-canada-old.herokuapp.com<%= entry_path(entry) %>" data-type="twitter" data-description="This is <%= entry.name %>'s Canada" data-media="<%= entry.avatar_url %>"></a>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </section>
+
+  <section class="more-posts">
+    <div class="more-posts-button">
+      <%= link_to "More Posts", entries_path %>
+    </div>
+  </section>
+
+
+  <section class="tourism-bottom">
+    <div class="container">
+      <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h1>Create Your Own Adventure</h1>
+        <h4 class="learn-more" style="text-align:center">Want to learn more about a vacation in the great Canadian wilderness just two hours north of Toronto?</h4>
+		<h4 style="text-align:center">Sign up for our Travel Newsletter.</h4>
+        <div class="email-form">
+          <%= render "emailform" %>
+        </div>
+        <div class="bottom-hero-images">
+          <img src="http://res.cloudinary.com/dx3z90dgl/image/upload/v1485797844/RTO12Logo_Angled_NEW-01_m8ufwu.svg" alt="Rto12logo angled 01 a4euwt">
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>

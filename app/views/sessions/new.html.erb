@@ -1,0 +1,26 @@
+<div class="container-fluid login">
+
+  <div class="col-md-6 col-md-offset-3 log-in-form">
+    <h1>Please Login</h1>
+
+    <%= form_tag sessions_path do %>
+      <div class="field login-title">
+        <%= text_field_tag :email, params[:email], placeholder: "Email" %>
+      </div>
+      <div class="field password-field">
+        <%= label_tag :password, "Password" %>
+        <%= password_field_tag :password %>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-sm-2">
+          <div class="actions log-in">
+            <%= submit_tag "Log in", id:"login-button" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <h1>Or Create Account</h1>
+    <button class="account" id="signup-link"><a href="/">SIGN UP</button>
+  </div>
+</div>

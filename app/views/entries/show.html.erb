@@ -1,0 +1,197 @@
+<% content_for :head do %>
+  <meta property="og:type"   content="article" />
+  <meta property="og:url"    content="http://www.shareyourcanada150.com<%= entry_path(@entry) %>" />
+  <meta property="og:title"  content="This is <%= @entry.name %>'s Canada" />
+  <meta property="og:image"  content="<%= @entry.avatar_url %>" />
+<% end %>
+
+
+<div class="container-fluid entry-show-main">
+
+  <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 this-is">
+    <div class="row this-is-row">
+      <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-xs-4 col-xs-offset-2 this-is-text">
+        <span class="left-bracket"><%= image_tag("http://res.cloudinary.com/dx3z90dgl/image/upload/v1483477142/Brackets-05_vx1mwe.svg") %></span>
+        <h1>This is<br>
+           <%= @entry.name.partition(" ").first %>'s</h1>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-4 maple-leaf">
+        <%= image_tag("http://res.cloudinary.com/dx3z90dgl/image/upload/v1483475882/RTO12Logo_01-03_qybe52.svg") %>
+        <span class="right-bracket"><%= image_tag("http://res.cloudinary.com/dx3z90dgl/image/upload/v1483477142/Brackets-08_inh4io.svg") %></span>
+      </div>
+    </div>
+
+  </div>
+
+  <% if @entry.filter_no_hashtag %>
+
+  <style media="screen">
+    .entry-show-main { background-image: url(<%= @entry.filter_no_hashtag %>); }
+  </style>
+
+  <% else %>
+
+  <style media="screen">
+    .entry-show-main { background-image: url(<%= @entry.avatar_url %>); }
+  </style>
+
+  <% end %>
+
+</div>
+
+<div class="container-fluid entry-show-main-bottom">
+  <div class="row entry-show-bottom">
+    <div class="col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1 entry-image-focus">
+      <% if @entry.filter %>
+        <%= image_tag(@entry.filter) %>
+      <% else %>
+        <%= image_tag(@entry.avatar_url) %>
+      <% end %>
+      <h3 class="image-hashtag">#SHAREYOURCANADA150</h3>
+    </div>
+    <div class="col-md-5 col-sm-5 entry-story">
+      <% if @entry.title %>
+      <h1><%= @entry.title %></h1>
+      <% else %>
+      <h1>This is my Canada</h1>
+      <% end %>
+      <%= @entry.story %>
+      <h4><em>- <%= @entry.name %></em></h4>
+    </div>
+  </div>
+
+  <div class="col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1 voting status">
+    <div class="vote-count row">
+      <span class="hover-share">SHARE</span><br>
+      <a href="#" class="prettySocial fa fa-facebook fa-4x" data-title="This is <%= @entry.name %>'s Canada" data-url="https://show-us-your-canada-old.herokuapp.com<%= entry_path(@entry) %>" data-type="facebook" data-description="This is <%= @entry.name %>'s Canada" data-media="<%= @entry.filter %>"></a>
+      <a href="#" class="prettySocial fa fa-twitter fa-4x" data-title="This is <%= @entry.name %>'s Canada" data-url="https://show-us-your-canada-old.herokuapp.com<%= entry_path(@entry) %>" data-type="twitter" data-description="This is <%= @entry.name %>'s Canada" data-media="<%= @entry.filter %>"></a>
+      <!-- <h2>Total Votes: <%# @entry.votes.where(email_confirmed: true).count + @entry.quizzes.where(email_confirmed: true).count*10 %></h2> -->
+    <% if current_user && current_user.entry == @entry %>
+      <h3><em>This is your submission</em></h3>
+    </div>
+  </div>
+    <% else %>
+      <!-- <button type="button" class="button-red" data-toggle="modal" data-target="#voteModal">
+        Vote for <%# @entry.name.partition(" ").first %>
+      </button> -->
+
+
+      <!-- Modal -->
+      <!-- <div class="modal fade" id="voteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="exampleModalLabel">CAST YOUR VOTE</h3>
+            </div>
+            <div class="modal-body">
+              <%# form_for([@entry, @vote]) do |f| %>
+                  <%# f.text_field :email, required: true, placeholder: "Enter your email", class:"well email-well" %><br><br>
+                  <%# f.submit "Vote for #{@entry.name.partition(" ").first}", class:"button-main", id:"vote-for" %>
+                  <h4>You will be emailed a link to validate your vote. Please check your inbox to complete the voting process</h4>
+              <%# end %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+  </div>
+
+    <% end %>
+
+
+</div>
+<section class="tourism-bottom">
+  <div class="container">
+    <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h1>Create Your Own Adventure</h1>
+      <h4 class="learn-more" style="text-align:center">Want to learn more about a vacation in the great Canadian wilderness just two hours north of Toronto?</h4>
+  <h4 style="text-align:center">Sign up for our Travel Newsletter.</h4>
+      <div class="email-form">
+        <%= render "emailform" %>
+      </div>
+      <div class="bottom-hero-images">
+        <img src="http://res.cloudinary.com/dx3z90dgl/image/upload/v1485797844/RTO12Logo_Angled_NEW-01_m8ufwu.svg" alt="Rto12logo angled 01 a4euwt">
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- <div class="container-fluid share-section">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 take-the-quiz">
+      <div class="test-your-knowledge">
+        <h2>TEST YOUR CANADIANA KNOWLEDGE & GIVE 10 EXTRA VOTES TO <%# @entry.name.partition(" ").first.upcase %></h2>
+        <button>TAKE THE QUIZ</button>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid bg-info">
+    <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h3><span class="label label-warning" id="qid">1</span> <span id="question-text">Which Muskoka native is Ontario's only lizard?</span></h3>
+        </div>
+        <div class="modal-body">
+            <div class="col-xs-3 col-xs-offset-5">
+               <div id="loadbar" style="display: none;">
+                  <div class="blockG" id="rotateG_01"></div>
+                  <div class="blockG" id="rotateG_02"></div>
+                  <div class="blockG" id="rotateG_03"></div>
+                  <div class="blockG" id="rotateG_04"></div>
+                  <div class="blockG" id="rotateG_05"></div>
+                  <div class="blockG" id="rotateG_06"></div>
+                  <div class="blockG" id="rotateG_07"></div>
+                  <div class="blockG" id="rotateG_08"></div>
+              </div>
+            </div>
+
+          <div class="quiz" id="quiz" data-toggle="buttons">
+           <label class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="1">Salamander</label>
+           <label class="element-animation2 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="Five-lined Skink">Five-lined Skink</label>
+           <label class="element-animation3 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="3">Gecko</label>
+           <label class="element-animation4 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="4">Snapping Turtle</label>
+         </div>
+         <div class="quiz" id="quiz1" data-toggle="buttons">
+          <label class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="The Canadian Shield">The Canadian Shield</label>
+          <label class="element-animation2 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="2">2 Two</label>
+          <label class="element-animation3 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="3">3 Three</label>
+          <label class="element-animation4 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="4">4 Four</label>
+         </div>
+          <div class="quiz" id="quiz2" data-toggle="buttons">
+           <label class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="1">3 One</label>
+           <label class="element-animation2 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="2">2 Two</label>
+           <label class="element-animation3 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="lenticular clouds">Lenticular cloud</label>
+           <label class="element-animation4 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="4">4 Four</label>
+         </div>
+         <div class="quiz" id="quiz3" data-toggle="buttons">
+          <label class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="1">4 One</label>
+          <label class="element-animation2 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="2">2 Two</label>
+          <label class="element-animation3 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="3">3 Three</label>
+          <label class="element-animation4 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="Advective fog">Advective fog</label>
+        </div>
+        <div class="quiz" id="quiz4" data-toggle="buttons">
+         <label class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="Cumulonimbus cloud">Cumulonimbus cloud</label>
+         <label class="element-animation2 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="2">2 Two</label>
+         <label class="element-animation3 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="3">3 Three</label>
+         <label class="element-animation4 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="4">4 Four</label>
+       </div>
+       <div class="quiz" id="quiz5" data-toggle="buttons">
+         <div class="quiz finished">
+           <h3>All done, just enter your email and click the confirmation link sent to you and your votes will be registered.</h3>
+           <button type="button" name="button" class="btn btn-primary">Submit</button>
+         </div>
+      </div>
+       </div>
+       <div class="modal-footer text-muted">
+         <span id="answer"></span>
+       </div>
+     </div>
+   </div>
+ </div> -->
+</div>

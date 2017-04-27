@@ -1,0 +1,267 @@
+$font-regular: 'Work Sans', sans-serif;
+$primary1: #4a5159;
+$primary2: #d24545;
+$primary3: #c5c2c5;
+$primary4: #008cb2;
+$secondary1: #574942;
+$secondary2: #3f9989;
+$secondary3: #396370;
+$secondary4: #e5e3e3;
+
+
+// INTRO CONTAINER
+
+.textpadbackground {
+	margin-top: 10vh;
+	margin-bottom: 10vh;
+    background-color: rgba(0,0,0,.70);
+    background-size: cover;
+    border: 10vh solid transparent;
+    border-image: url('http://res.cloudinary.com/dx3z90dgl/image/upload/v1485724817/brackets_r2tay1.png') 20% repeat;
+}
+
+div.intro-text-wrapper {
+  padding: 7vh 7vh;
+	background-color: rgba(0,0,0,.70);
+}
+
+.intro-container {
+  // background-image: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1483407526/Entries_Board_nq7d9b.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+	margin-top: 20vh;
+	margin-bottom: 20vh
+}
+
+
+// PANEL ONE - EXPLORE MORE
+
+.exploremore {
+  background-image: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1483407530/EnterToWin_Background_gvafys.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height:20vh;
+}
+
+// PANEL TWO - PAMPERED WILDERNESS
+
+.pamperedwilderness {
+  background-image: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1487799178/About_Panel_1_Cover_qbdkxf.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+
+// PANEL THREE - CAMPING & GLAMPING
+
+.glamping {
+  background-image: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1485722274/Glamping_32_tz0ov6.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+
+// PANEL FOUR - PADDLING
+
+.paddling {
+  background-image: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1487634964/8735353223_02ddb224d4_o_ogleh7_lgqnon.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+
+// PLANEL FIVE - OUTDOOR ADVENTURE
+
+.outdooradventure {
+  background-image: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1485722649/19560925711_ff5979b97c_o_f6hvcn.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+
+// PANEL SIX - CRAFT BEER & WINE
+
+.craftbeer {
+  background-image: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1487634964/7597970362_1b13ddaa62_o_ts8nfd_ljprpf.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+// PANEL SEVEN - GOLF
+
+.golf {
+  background-image: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1487634967/23121150016_b2ee84b6e1_o_wnrj7d_bclyxm.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+
+.about-main {
+  background-image: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1483407521/Footer_Background_amx84q.jpg");
+  h1, h3, p {
+    color: white;
+    font-family: $font-regular;
+  }
+  h1 {
+    margin-top: 5px;
+    font-weight: 700;
+    font-size: 46px;
+  }
+	h3 {
+		font-size: 22px
+	}
+}
+
+.about-section-one {
+  padding: 100px;
+  h1 {
+    color: $secondary4;
+  }
+}
+
+.polaroid {
+  max-width: 450px;
+  margin: 50px 0;
+}
+
+.intro-wrapper {
+  margin: 30px 0;
+}
+
+.about-top-button.small {
+	display: none;
+}
+
+.about-intro {
+  background-image: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1485726877/cliffjump_gomqsq.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+	background-position: center center;
+  padding: 50px 0;
+  background-attachment: fixed;
+  h1 {
+    margin-top: 0;
+    text-transform: uppercase;
+    color: white;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 0%;
+  }
+}
+
+ .about-paddle, .about-golf {
+  background-image: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1483407524/Entries_Background_sbutxk.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  &:before {
+      background-color: rgba(0, 0, 0, 0.29);
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+  }
+}
+
+.about-paddle {
+  .text-column {
+    margin-top: 20px;
+  }
+}
+
+
+.about-spa, .about-stay, .about-beer {
+  background-image: url("http://res.cloudinary.com/dx3z90dgl/image/upload/v1485119460/Section2_Background_02_ts44ed.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  &:before {
+      background-color: rgba(0, 0, 0, 0.29);
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+  }
+}
+
+h1.explore-heading {
+	margin-top: 7vh;
+}
+
+@media (max-width: 1030px) {
+
+	.intro-text-wrapper {
+		padding: 6.4vh;
+	}
+
+	a.about-top-button {
+		font-size: 1.7rem;
+	}
+
+	div.intro-container {
+		margin-top: 10vh;
+	}
+
+}
+
+@media (max-width: 770px) {
+
+	.textpadbackground {
+		border-width: 6vh;
+	}
+
+}
+
+
+@media (max-width: 700px) {
+	section.about-intro {
+		height: 115vh;
+		h1 {
+			font-size: 2rem;
+		}
+
+		h3 {
+			font-size: 1.3rem;
+			margin-top: 10px;
+		}
+	}
+
+	.intro-text-wrapper {
+		padding-top: 13vh;
+	}
+
+	a.about-top-button {
+		display: none;
+	}
+
+	a.about-top-button.small {
+		display: block;
+		color: white;
+		font-size: 1.17rem;
+	}
+
+	.explore-heading {
+		margin-top: 1vh;
+	}
+
+	.about-main h1 {
+		font-size: 2rem;
+	}
+}

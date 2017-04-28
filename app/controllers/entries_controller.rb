@@ -81,9 +81,18 @@ class EntriesController < ApplicationController
 
     @entry.assign_attributes(entry_params)
       if @entry.avatar_changed?
+         @entry.filter = nil
+         @entry.filter_no_hashtag = nil
+      end
+
+      if @entry.filter == ""
         @entry.filter = nil
+      end
+
+      if @entry.filter_no_hashtag == ""
         @entry.filter_no_hashtag = nil
       end
+
       if @entry.save
         redirect_to user_path(current_user)
       else
